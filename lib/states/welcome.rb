@@ -4,7 +4,6 @@ require_relative 'load'
 require_relative '../menu'
 require_relative 'exit'
 require_relative '../context'
-require_relative '../modules/str_to_method_name'
 require_relative '../loader'
 require_relative '../valera'
 require_relative '../action'
@@ -28,13 +27,6 @@ module AppStates
 
     def change_state
       send check_user_input
-    end
-
-    def wrong_state
-      # io_adapter.clear
-      io_adapter.write 'Try choosing correct options!!'
-      sleep 1
-      @context.repeat_state
     end
 
     def start_menu
@@ -84,7 +76,6 @@ module AppStates
       # io_adapter.clear
       io_adapter.write 'Try choosing correct options!!'
       sleep 1
-      @context.repeat_state
     end
   end
 end
