@@ -11,7 +11,7 @@ class Saver
       io_adapter.write 'Choose slot for saving'
     else
       (1..9).each do |i|
-        File.open("saves/save#{i}.yml", 'w') { |file| file.write('') }
+        File.write("saves/save#{i}.yml", '')
       end
     end
     show_saves
@@ -35,7 +35,7 @@ class Saver
   fun: #{valera.fun}
   money: #{valera.money}
   fatigue: #{valera.fatigue}"
-    File.open("saves/save#{number_of_save}.yml", 'w') { |file| file.write(@save_content) }
+    File.write("saves/save#{number_of_save}.yml", @save_content)
   end
 
   def io_adapter

@@ -13,7 +13,7 @@ class Loader
       io_adapter.write 'Choose slot for loading'
     else
       (1..9).each do |i|
-        File.open("saves/save#{i}.yml", 'w') { |file| file.write('') }
+        File.write("saves/save#{i}.yml", '')
       end
     end
     show_saves

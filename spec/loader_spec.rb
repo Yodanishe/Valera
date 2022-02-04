@@ -69,14 +69,14 @@ RSpec.describe Loader do
 
   describe '#load_save' do
     context 'Take nil from empty save file' do
-      File.open('saves/save8.yml', 'w') { |file| file.write('') }
+      File.write('saves/save8.yml', '')
       it { expect(loader.load_save(8)).to eq nil }
     end
     context 'Give stats to var from save file' do
       stats = "-\n  health: 100\n  mana: 0\n  fun: 0\n  money: 0\n  fatigue: 0"
       valera_stats = [{ 'fatigue' => 0, 'fun' => 0, 'health' => 100, 'mana' => 0, 'money' => 0 }]
       it {
-        File.open('saves/save9.yml', 'w') { |file| file.write(stats) }
+        File.write('saves/save9.yml', stats)
         expect(loader.load_save(9)).to eq valera_stats
       }
     end
