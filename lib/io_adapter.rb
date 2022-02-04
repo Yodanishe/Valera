@@ -1,13 +1,17 @@
 require 'singleton'
 
 class IOAdapter
-    include Singleton
+  include Singleton
 
-    def write(string)
-        puts string
-    end
+  def write(string)
+    puts string
+  end
 
-    def read
-        gets.chomp
-    end
+  def read
+    gets.chomp
+  end
+
+  def clear
+    system 'clear'
+  end
 end
